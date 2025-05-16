@@ -1,0 +1,143 @@
+.saibamais-container {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+.info-section {
+    background: linear-gradient(145deg, #ffffff 0%, #f5f7fa 100%);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 4px 15px rgba(45, 62, 93, 0.08);
+}
+
+.info-section h2 {
+    color: #2D3E5D;
+    border-bottom: 2px solid #2D3E5D;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.standards-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1rem 0;
+}
+
+.standards-table th,
+.standards-table td {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid #e0e0e0;
+}
+
+.standards-table th {
+    background: #2D3E5D;
+    color: white;
+}
+
+.standards-table tr:nth-child(even) {
+    background-color: #f8f9fa;
+}
+
+.quality-levels {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin: 1rem 0;
+}
+
+.quality-card {
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease;
+}
+
+.quality-card:hover {
+    transform: translateY(-5px);
+}
+
+.quality-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.quality-card p {
+    line-height: 1.4;
+    margin: 0;
+}
+
+.quality-boa {
+    background-color: #32CD32;
+    /* Verde */
+    color: #000000;
+}
+
+.quality-moderada {
+    background-color: #FFD700;
+    /* Amarelo */
+    color: #333333;
+}
+
+.quality-ruim {
+    background-color: #FF4500;
+    /* Laranja */
+    color: #000000;
+}
+
+.quality-muito-ruim {
+    background-color: #FF0000;
+    /* Vermelho */
+    color: #000000;
+}
+
+.quality-pessima {
+    background-color: #800080;
+    /* Roxo */
+    color: #000000;
+    text-shadow: none;
+}
+
+.quality-pessima h3 {
+    color: #000000;
+    font-weight: 700;
+}
+
+.quality-pessima p {
+    color: #000000;
+    opacity: 1;
+    font-weight: 500;
+}
+
+/* Improve contrast for text */
+.quality-moderada h3,
+.quality-moderada p {
+    color: #333333;
+}
+
+.quality-boa h3,
+.quality-ruim h3,
+.quality-muito-ruim h3,
+.quality-boa p,
+.quality-ruim p,
+.quality-muito-ruim p {
+    color: #000000;
+}
+
+@media (max-width: 768px) {
+    .saibamais-container {
+        padding: 0 15px;
+    }
+
+    .standards-table {
+        display: block;
+        overflow-x: auto;
+    }
+
+    .quality-levels {
+        grid-template-columns: 1fr;
+    }
+}

@@ -1,0 +1,8 @@
+.menu {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr) 5fr;
+}
+.menu__itens{
+    width: 100%;
+    list-style-type: none;
+}

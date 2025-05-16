@@ -1,0 +1,313 @@
+/* Container principal dos dados meteorológicos */
+.meteo-container {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* Grade para organizar os cartões meteorológicos */
+.meteo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/* Estilo dos cartões individuais de dados meteorológicos */
+.meteo-card {
+    background: linear-gradient(145deg, #ffffff, #f5f7fa);
+    border-radius: 15px;
+    padding: 1.5rem;
+    text-align: center;
+    box-shadow: 0 8px 20px rgba(45, 62, 93, 0.08);
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.8);
+}
+
+/* Efeito hover nos cartões */
+.meteo-card:hover {
+    transform: translateY(-5px);
+}
+
+/* Ícones dentro dos cartões meteorológicos */
+.meteo-icon {
+    font-size: 2.5rem;
+    color: #2D3E5D;
+    margin-bottom: 1rem;
+}
+
+/* Títulos dos cartões */
+.meteo-card h3 {
+    color: #4a5d80;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+}
+
+/* Valores meteorológicos */
+.meteo-value {
+    font-size: 2rem;
+    font-weight: 600;
+    color: #2D3E5D;
+}
+
+/* Unidades de medida */
+.meteo-value .unit {
+    font-size: 1.2rem;
+    color: #4a5d80;
+    margin-left: 0.3rem;
+}
+
+/* Container dos gráficos */
+.charts-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+/* Wrapper individual dos gráficos */
+.chart-wrapper {
+    background: white;
+    border-radius: 15px;
+    padding: 1.5rem;
+    box-shadow: 0 8px 20px rgba(45, 62, 93, 0.08);
+}
+
+.chart-wrapper h3 {
+    color: #2D3E5D;
+    text-align: center;
+    margin-bottom: 1rem;
+    font-size: 1.1rem;
+}
+
+/* Seletor de estações */
+.station-selector {
+    max-width: 1600px;
+    margin: 2rem auto 1rem;
+    padding: 3rem;
+    background: #ffffff;
+    border-radius: 20px;
+    box-shadow: 0 4px 20px rgba(45, 62, 93, 0.06);
+}
+
+/* Título do seletor de estações */
+.selector-title {
+    color: #2D3E5D;
+    font-size: 1.3rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: 600;
+}
+
+.selector-title i {
+    color: #4a5d80;
+    margin-right: 8px;
+}
+
+/* Container dos botões de estação */
+.station-buttons {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    justify-content: center;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Botões individuais de estação */
+.station-btn {
+    flex: 1;
+    width: 100%;
+    padding: 1rem;
+    background: #f8f9fa;
+    border: 1px solid rgba(45, 62, 93, 0.1);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: flex-start;
+    /* Alterado para alinhar ao topo */
+    gap: 1rem;
+    overflow: hidden;
+    /* Previne overflow de texto */
+    min-height: 95px;
+    /* Aumentado para acomodar o status */
+    position: relative;
+    /* Para posicionamento do status */
+    padding-bottom: 1.5rem;
+    /* Espaço extra para o status */
+}
+
+/* Estado ativo dos botões de estação */
+.station-btn.active {
+    background: #2D3E5D;
+    border-color: #4a5d80;
+}
+
+/* Ícones das estações */
+.station-icon {
+    width: 36px;
+    height: 36px;
+    background: #f0f2f5;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.station-icon i {
+    color: #2D3E5D;
+    font-size: 1.2rem;
+}
+
+/* Informações das estações */
+.station-info {
+    text-align: left;
+    flex: 1;
+    min-width: 0;
+    /* Permite que o texto quebre adequadamente */
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    position: relative;
+    /* Para posicionamento do status */
+    height: 100%;
+    /* Ocupa toda altura disponível */
+    padding-bottom: 20px;
+    /* Espaço para o status */
+}
+
+/* Nome das estações */
+.station-name {
+    color: #2D3E5D;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-bottom: 2px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Endereço das estações */
+.station-address {
+    color: #6c757d;
+    font-size: 0.8rem;
+    line-height: 1.2;
+    word-wrap: break-word;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    /* Limita a 2 linhas */
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    margin-bottom: 2px;
+}
+
+/* Indicador de status das estações */
+.station-status {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    font-size: 0.75rem;
+    color: #4CAF50;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.station-status::before {
+    content: '';
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4CAF50;
+}
+
+/* Active state styles */
+.station-btn.active .station-name,
+.station-btn.active .station-address,
+.station-btn.active .station-status {
+    color: #ffffff;
+}
+
+.station-btn.active .station-status::before {
+    background: #81C784;
+}
+
+/* Adaptação para dispositivos móveis */
+@media (max-width: 768px) {
+
+    /* Ajustes de layout para telas pequenas */
+    .meteo-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .charts-container {
+        grid-template-columns: 1fr;
+    }
+
+    .meteo-card {
+        padding: 1rem;
+    }
+
+    .meteo-icon {
+        font-size: 2rem;
+    }
+
+    .meteo-value {
+        font-size: 1.5rem;
+    }
+
+    /* Ajustes dos botões de estação para mobile */
+    .station-buttons {
+        grid-template-columns: 1fr;
+        gap: 0.8rem;
+    }
+
+    /* Redução de tamanhos para melhor visualização em mobile */
+    .station-btn {
+        width: 100%;
+        justify-content: center;
+        padding: 0.8rem;
+        gap: 1rem;
+        min-height: 85px;
+        /* Altura mínima reduzida para mobile */
+        padding-bottom: 1.2rem;
+    }
+
+    .station-selector {
+        padding: 1rem;
+        margin: 1rem;
+    }
+
+    .station-name {
+        font-size: 0.9rem;
+    }
+
+    .station-address {
+        font-size: 0.7rem;
+        -webkit-line-clamp: 1;
+        /* Limita a 1 linha em mobile */
+    }
+
+    .station-icon {
+        width: 30px;
+        height: 30px;
+    }
+
+    .station-icon i {
+        font-size: 1.2rem;
+    }
+
+    .station-info {
+        gap: 1px;
+        padding-bottom: 16px;
+    }
+
+    .station-status {
+        font-size: 0.7rem;
+    }
+}
+.js-plotly-plot{
+    height: 50%
+}

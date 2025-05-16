@@ -1,0 +1,30 @@
+.info{
+    display: flex;
+    justify-content: center;
+}
+.info__tabela{
+    text-align: center;
+}
+.info__title{
+    font-size: larger;
+}
+.aqi-box{
+    width: 525px;
+    height: 90px;
+    border-radius: 5px;
+    background-color: rgb(207 232 220);
+    border: 2px solid rgb(79 185 227);
+    box-shadow: 10px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+/* Layout Principal */
+.container {
+    display: grid;
+    grid-template-columns: 60% 40%;
+    flex-direction: row;
+    height: calc(100vh - 80px);
+    overflow: hidden;
+}

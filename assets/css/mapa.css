@@ -1,0 +1,24 @@
+/* Mapa */
+#map {
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+
+/* Estilo base da legenda */
+.legenda-qualidade-ar {
+    position: absolute;
+    bottom: 50px;
+    right: 50px;
+    z-index: 1000;
+    pointer-events: none;
+    max-width: 100%;
+}
+
+.legenda-qualidade-ar img {
+    width: 400px;
+    height: auto;
+    display: block;
+}

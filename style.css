@@ -1,0 +1,354 @@
+/* Base Layout */
+body {
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    overflow-x: hidden;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+#center {
+    height: 50vh;
+    min-height: 300px;
+    width: 100%;
+}
+
+#map {
+    height: 100%;
+    width: 100%;
+}
+
+/* Ajustes para telas menores/dispositivos móveis */
+@media screen and (max-width: 768px) {
+    .legenda-qualidade-ar {
+        bottom: 20px;
+        right: 20px;
+        width: 80%;
+        max-width: 300px;
+    }
+
+    .legenda-qualidade-ar img {
+        width: 100%;
+        height: auto;
+    }
+
+    header {
+        padding: 10px;
+    }
+
+    .nav__grid {
+        grid-template-columns: auto auto;
+        gap: 10px;
+    }
+
+    .title {
+        font-size: 20px;
+        text-align: center;
+        grid-column: 1 / -1;
+        order: -1;
+    }
+
+    .img img {
+        height: 40px;
+    }
+
+    .elementosAQI {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+    }
+
+    .elemento-card {
+        padding: 12px;
+    }
+
+    .elemento-card i {
+        font-size: 20px;
+    }
+
+    .elemento-card h4 {
+        font-size: 14px;
+        margin: 8px 0;
+    }
+
+    .elemento-card .valor {
+        font-size: 13px;
+    }
+
+    .aqi-box {
+        padding: 15px;
+    }
+
+    .station-title {
+        font-size: 18px;
+    }
+
+    .footer {
+        padding: 15px;
+        font-size: 14px;
+    }
+
+    #FooterSeals {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .container {
+        flex-direction: column;
+    }
+
+    #center {
+        height: 40vh;
+    }
+
+    #info {
+        width: 100%;
+        height: auto;
+        padding: 15px;
+        box-sizing: border-box;
+    }
+
+    .elementosAQI {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .elemento-card {
+        background: white;
+        border-radius: 8px;
+        padding: 15px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .header .dropdowns {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    .header select {
+        width: 100%;
+        padding: 8px;
+        margin: 2px 0;
+    }
+
+    .grid {
+        grid-template-columns: repeat(7, 1fr);
+        gap: 4px;
+    }
+
+    .grid button {
+        padding: 8px;
+        font-size: 14px;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media screen and (max-width: 480px) {
+    .legenda-qualidade-ar {
+        bottom: 10px;
+        right: 10px;
+        width: 90%;
+        max-width: 250px;
+    }
+
+    .elementosAQI {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+
+    #center {
+        height: 35vh;
+    }
+
+    .station-title {
+        font-size: 1.2rem;
+    }
+
+    .elemento-card {
+        padding: 10px;
+    }
+
+    .elemento-card i {
+        font-size: 18px;
+    }
+
+    .elemento-card h4 {
+        font-size: 14px;
+        margin: 6px 0;
+    }
+
+    .elemento-card .valor {
+        font-size: 12px;
+    }
+
+    .footer {
+        padding: 10px;
+    }
+
+    #FooterSeals {
+        flex-direction: column;
+    }
+}
+
+/* Tablet View */
+@media screen and (max-width: 1024px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+        padding: 10px;
+    }
+
+    #center {
+        flex: none;
+        width: 100%;
+        height: 400px;
+        margin-bottom: 20px;
+    }
+
+    #map {
+        height: 100%;
+        border-radius: 8px;
+    }
+
+    #info {
+        flex: none;
+        width: 100%;
+        margin-top: 20px;
+    }
+
+    .elementosAQI {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 15px;
+    }
+
+    .nav__grid {
+        padding: 10px;
+    }
+
+    .title {
+        font-size: 24px;
+    }
+}
+
+.elemento-card {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s ease;
+}
+
+.elemento-card:hover {
+    transform: translateY(-5px);
+}
+
+.elemento-card i {
+    font-size: 24px;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.elemento-card h4 {
+    margin: 10px 0;
+    color: #2c3e50;
+}
+
+.elemento-card .valor {
+    color: #34495e;
+    font-size: 1.1em;
+    font-weight: 500;
+}
+
+/* Media Queries para Responsividade */
+@media screen and (max-width: 768px) {
+    .container {
+        flex-direction: column;
+        height: auto;
+    }
+
+    #center,
+    #info {
+        flex: 1;
+        width: 100%;
+        height: auto;
+        padding: 10px;
+    }
+
+    #map {
+        height: 300px;
+    }
+
+    .elementosAQI {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+        padding: 10px;
+    }
+
+    .station-title {
+        font-size: 1.4em;
+    }
+
+    .elemento-card {
+        padding: 10px;
+    }
+
+    .elemento-card i {
+        font-size: 20px;
+    }
+
+    .elemento-card h4 {
+        font-size: 0.9em;
+    }
+
+    .elemento-card .valor {
+        font-size: 0.9em;
+    }
+
+    .aqi-box {
+        padding: 15px;
+    }
+
+    .aqi-details {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .detail-item {
+        width: 100%;
+        margin: 5px 0;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .dropdowns {
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media screen and (max-width: 480px) {
+    .elementosAQI {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        padding: 10px;
+    }
+
+    #FooterSeals {
+        flex-direction: column;
+    }
+}
