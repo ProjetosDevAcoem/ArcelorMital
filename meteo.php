@@ -1,6 +1,6 @@
 <?php
 try {
-    $config = include('/home/qualidadedoarpoa/config.php');
+    $config = include('config.php');
 
     $pdo = new PDO(
         "mysql:host={$config['db_host']};dbname={$config['db_name']};charset=utf8mb4",

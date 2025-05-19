@@ -1,6 +1,6 @@
 <?php
 try {
-    $config = include('/home/qualidadedoarpoa/config.php');
+    $config = include('config.php');
     
     $pdo = new PDO(
         "mysql:host={$config['db_host']};dbname={$config['db_name']};charset=utf8mb4", // Adicionando charset=utf8mb4
@@ -45,7 +45,7 @@ try {
               AND table_name = :table 
               AND column_name IN ('$placeholders')
         ");
-        $stmt->execute(['database' => 'wwacoe_kunak_estacoes', 'table' => $tabela]);
+        $stmt->execute(['database' => 'acoempoa', 'table' => $tabela]);
         $colunas_encontradas = $stmt->fetchColumn() ?: 0;
 
         if ($colunas_encontradas == count($colunas_necessarias)) {

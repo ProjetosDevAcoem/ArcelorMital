@@ -1,6 +1,6 @@
 <?php
 try {
-    $config = include('/home/qualidadedoarpoa/config.php');
+    $config = include('config.php');
     
     $pdo = new PDO(
         "mysql:host={$config['db_host']};dbname={$config['db_name']};charset=utf8mb4", // Adicionando charset=utf8mb4
@@ -20,7 +20,7 @@ try {
     WHERE table_schema = :database
     ");
 
-    $stmt->execute(['database' => 'wwacoe_kunak_estacoes']);
+    $stmt->execute(['database' => 'acoempoa']);
     $tabelas = $stmt->fetchAll(PDO::FETCH_COLUMN);
 
     // Colunas esperadas na tabela
