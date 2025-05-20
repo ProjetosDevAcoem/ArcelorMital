@@ -10,6 +10,7 @@
                 <a href="saibamais.php"><li><?= $lang['menu_saiba'] ?></li></a>
                 <a href="dadosMeteorologicos.php"><li><?= $lang['menu_dados'] ?></li></a>
                 <a href="poluentesMonitorados.php"><li><?= $lang['menu_evolucao'] ?></li></a>
+                <a href="logout.php"><li><?= $lang['menu_logout'] ?></li></a>
             </ul>
         </div>
         <form method="get" id="languageForm" class="idiomaBotao">

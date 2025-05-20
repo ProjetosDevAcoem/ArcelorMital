@@ -6,6 +6,7 @@ $lang = [
     'menu_saiba' => 'Contaminantes Monitoreados',
     'menu_dados' => 'Datos Meteorológicos',
     'menu_evolucao' => 'Evolución Histórica',
+    'menu_logout' => 'Cerrar sesión',
     'status_good' => 'Buena',
     'status_moderate' => 'Moderada',
     'status_bad' => 'Mala',

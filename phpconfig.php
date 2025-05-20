@@ -1,5 +1,4 @@
 <?php
-session_start();
 
 // Troca idioma via GET
 if (isset($_GET['lang']) && in_array($_GET['lang'], ['pt', 'en', 'es'])) {
@@ -8,7 +7,7 @@ if (isset($_GET['lang']) && in_array($_GET['lang'], ['pt', 'en', 'es'])) {
     exit();
 }
 
-// Idioma padr«ªo
+// Idioma padrï¿½ï¿½ï¿½o
 if (!isset($_SESSION['lang'])) {
     $_SESSION['lang'] = 'pt';
 }

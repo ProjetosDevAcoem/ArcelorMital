@@ -6,6 +6,7 @@ $lang = [
     'menu_saiba' => 'Monitored Pollutants',
     'menu_dados' => 'Meteorological Data',
     'menu_evolucao' => 'Historical Evolution',
+    'menu_logout' => 'Logout',
     'status_good' => 'Good',
     'status_moderate' => 'Moderate',
     'status_bad' => 'Poor',
