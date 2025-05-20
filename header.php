@@ -1,3 +1,11 @@
+<?php
+// Não inicia a sessão aqui, assumindo que já foi iniciada antes
+
+if (!isset($_SESSION['usuario_id'])) {
+    header("Location: login.php");
+    exit;
+}
+?>
 <header>
     <nav class="nav__grid">
         <a class="img" href="https://prefeitura.poa.br/">
@@ -10,9 +18,15 @@
                 <a href="saibamais.php"><li><?= $lang['menu_saiba'] ?></li></a>
                 <a href="dadosMeteorologicos.php"><li><?= $lang['menu_dados'] ?></li></a>
                 <a href="poluentesMonitorados.php"><li><?= $lang['menu_evolucao'] ?></li></a>
+
+                <?php if (isset($_SESSION['nivel_permissao']) && $_SESSION['nivel_permissao'] === 'admin'): ?>
+                    <a href="cadastrar.php"><li>Cadastrar</li></a>
+                <?php endif; ?>
+
                 <a href="logout.php"><li><?= $lang['menu_logout'] ?></li></a>
             </ul>
         </div>
+
         <form method="get" id="languageForm" class="idiomaBotao">
             <select name="lang" onchange="this.form.submit()">
                 <option value="pt" <?= $_SESSION['lang'] == 'pt' ? 'selected' : '' ?>>🇧🇷 <?= $lang['lang_pt'] ?></option>

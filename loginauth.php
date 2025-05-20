@@ -18,7 +18,7 @@ if ($conn->connect_error) {
 $nome_login = $_POST['nome_login'] ?? '';
 $senha = $_POST['senha'] ?? '';
 
-$stmt = $conn->prepare("SELECT id, nome_login, senha_hash FROM usuarios WHERE nome_login = ?");
+$stmt = $conn->prepare("SELECT id, nome_login, senha_hash, nivel_permissao FROM usuarios WHERE nome_login = ?");
 $stmt->bind_param("s", $nome_login);
 $stmt->execute();
 $result = $stmt->get_result();
@@ -29,6 +29,8 @@ if ($result->num_rows === 1) {
     if (password_verify($senha, $usuario['senha_hash'])) {
         $_SESSION['usuario_id'] = $usuario['id'];
         $_SESSION['nome_login'] = $usuario['nome_login'];
+        $_SESSION['nivel_permissao'] = $usuario['nivel_permissao']; // ← ESSA LINHA É ESSENCIAL
+
         header("Location: index.php");
         exit;
     } else {
