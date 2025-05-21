@@ -58,10 +58,11 @@ include 'gerartabela.php';
                 </select>
 
                 <label for="startDate">Início:</label>
-                <input type="date" id="startDate" />
+                <input type="datetime-local" id="startDate" />
 
                 <label for="endDate">Fim:</label>
-                <input type="date" id="endDate" />
+                <input type="datetime-local" id="endDate" />
+
 
                 <button id="filtrarBtn">Filtrar</button>
             </div>

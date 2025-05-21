@@ -55,22 +55,36 @@ try {
 
     if (!empty($startDate) && !empty($endDate)) {
         $whereClause = " WHERE TimeStamp BETWEEN :startDate AND :endDate";
-        $params[':startDate'] = strtotime($startDate . ' +3 hours');
-        $params[':endDate'] = strtotime($endDate . ' +3 hours');
+        $params[':startDate'] = strtotime($startDate . '');
+        $params[':endDate'] = strtotime($endDate . '');
 
     }
 
     // Buscar os dados filtrados
-    $query = "SELECT TimeStamp, Tag, temp, umid, press, vel, chuva, rad, dir FROM `$tableName`" . $whereClause . " ORDER BY TimeStamp DESC";
+    $query = "SELECT TimeStamp, Tag, temp, umid, press, vel, chuva, rad, dir FROM `$tableName`" . $whereClause . " ORDER BY TimeStamp ASC";
     $stmt = $pdo->prepare($query);
     $stmt->execute($params);
     $dados = $stmt->fetchAll();
+
+    $dadosFormatados = array_map(function($row) {
+        return [
+            'TimeStamp' => date('Y-m-d H:i:s', $row['TimeStamp']), // Formata o timestamp
+            'Tag' => $row['Tag'],
+            'temp' => $row['temp'],
+            'umid' => $row['umid'],
+            'press' => $row['press'],
+            'vel' => $row['vel'],
+            'chuva' => $row['chuva'],
+            'rad' => $row['rad'],
+            'dir' => $row['dir']
+        ];
+    }, $dados);    
 
     // Retornar os dados em JSON, incluindo o nome da estação
     header('Content-Type: application/json');
     echo json_encode([
         "station_name" => $stationName,
-        "data" => $dados
+        "data" => $dadosFormatados
     ], JSON_PRETTY_PRINT);
 
 } catch (PDOException $e) {
