@@ -26,7 +26,7 @@ if (!isset($_SESSION['usuario_id'])) {
                 <a href="poluentesMonitorados.php"><li><?= $lang['menu_evolucao'] ?></li></a>
 
                 <?php if (isset($_SESSION['nivel_permissao']) && $_SESSION['nivel_permissao'] === 'admin'): ?>
-                    <a href="usuariosCriados.php"><li><?= $lang['users'] ?></li></a>
+                    <a href="tabelaConsulta.php"><li>Tabela</li></a>
                 <?php endif; ?>
 
                 <?php if (isset($_SESSION['nivel_permissao']) && $_SESSION['nivel_permissao'] === 'admin'): ?>
