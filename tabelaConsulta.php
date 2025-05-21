@@ -9,7 +9,6 @@ if (!isset($_SESSION['usuario_id'])) {
 include 'phpconfig.php';
 include 'head.php';
 include 'header.php';
-include 'tabelaDados.php';
 include 'gerartabela.php';
 ?>
 

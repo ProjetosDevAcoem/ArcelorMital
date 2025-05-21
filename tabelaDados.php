@@ -19,9 +19,9 @@ try {
     $startDate = $_GET['startDate'] ?? '';
     $endDate = $_GET['endDate'] ?? '';
 
-    // if (empty($station)) {
-    //     throw new Exception("Nenhuma estação informada.");
-    // }
+    if (empty($station)) {
+        throw new Exception("Nenhuma estação informada.");
+    }
 
     // Mapeamento das tabelas
     $stationsMap = [
