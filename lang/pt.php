@@ -7,6 +7,7 @@ $lang = [
     'menu_saiba' => 'Poluentes Monitorados',
     'menu_dados' => 'Dados Meteorológicos',
     'menu_evolucao' => 'Evolução Histórica',
+    'users' => 'Usuarios',
     'menu_logout' => 'Encerrar sessão',
     'status_good' => 'Boa',
     'status_moderate' => 'Moderado',

@@ -8,9 +8,15 @@ if (!isset($_SESSION['usuario_id'])) {
 ?>
 <header>
     <nav class="nav__grid">
-        <a class="img" href="https://prefeitura.poa.br/">
-            <img src="src/images/prefeitura Porto Alegre.svg" alt="" />
-        </a>
+        <div>
+            <form method="get" id="languageForm" class="idiomaBotao">
+                <select name="lang" onchange="this.form.submit()">
+                    <option value="pt" <?= $_SESSION['lang'] == 'pt' ? 'selected' : '' ?>>🇧🇷 <?= $lang['lang_pt'] ?></option>
+                    <option value="en" <?= $_SESSION['lang'] == 'en' ? 'selected' : '' ?>>🇺🇸 <?= $lang['lang_en'] ?></option>
+                    <option value="es" <?= $_SESSION['lang'] == 'es' ? 'selected' : '' ?>>🇪🇸 <?= $lang['lang_es'] ?></option>
+                </select>
+            </form>
+        </div>
         <div style="text-align: center">
             <h1><?= $lang['title'] ?></h1>
             <ul class="nav__list">
@@ -20,19 +26,18 @@ if (!isset($_SESSION['usuario_id'])) {
                 <a href="poluentesMonitorados.php"><li><?= $lang['menu_evolucao'] ?></li></a>
 
                 <?php if (isset($_SESSION['nivel_permissao']) && $_SESSION['nivel_permissao'] === 'admin'): ?>
-                    <a href="cadastrar.php"><li>Cadastrar</li></a>
+                    <a href="usuariosCriados.php"><li><?= $lang['users'] ?></li></a>
                 <?php endif; ?>
 
+                <?php if (isset($_SESSION['nivel_permissao']) && $_SESSION['nivel_permissao'] === 'admin'): ?>
+                    <a href="cadastrar.php"><li>Cadastrar</li></a>
+                <?php endif; ?>
+            </ul>
+        </div>
+        <div>
+            <ul class="nav__list">
                 <a href="logout.php"><li><?= $lang['menu_logout'] ?></li></a>
             </ul>
         </div>
-
-        <form method="get" id="languageForm" class="idiomaBotao">
-            <select name="lang" onchange="this.form.submit()">
-                <option value="pt" <?= $_SESSION['lang'] == 'pt' ? 'selected' : '' ?>>🇧🇷 <?= $lang['lang_pt'] ?></option>
-                <option value="en" <?= $_SESSION['lang'] == 'en' ? 'selected' : '' ?>>🇺🇸 <?= $lang['lang_en'] ?></option>
-                <option value="es" <?= $_SESSION['lang'] == 'es' ? 'selected' : '' ?>>🇪🇸 <?= $lang['lang_es'] ?></option>
-            </select>
-        </form>
     </nav>
 </header>

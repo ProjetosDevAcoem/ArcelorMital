@@ -23,5 +23,6 @@ header {
 }
 /* Botão dropdown header*/ 
 .idiomaBotao{
+    display: flex;
     text-align: end;
 }
