@@ -26,16 +26,57 @@ include 'graficos/carregarpaginainicial.php';
                     </div>
                 </div>
             </div>
-
-            <div id="info" class="info">
-                <div class="info__tabela">
-                    <h2 id="title-kunak-station" class="station-title"></h2>
-                    <div class="aqi-box aqi-box-elements">
-                        <div class="aqi-box-elements">
-                            <div class="aqi-details">
-                                <div class="detail-item">
-                                    <span id="AQI" class="aqi-value"></span>
-                                </div>
+             <section class="meteo-grid">
+            <div class="meteo-card">
+                <div class="meteo-icon"><i class="fas fa-temperature-high"></i></div>
+                <h3><?= $lang['temperature'] ?></h3>
+                <div class="meteo-value" id="temperature">
+                    <span class="value"></span><span class="unit">°C</span>
+                </div>
+            </div>
+            <div class="meteo-card">
+                <div class="meteo-icon"><i class="fas fa-tint"></i></div>
+                <h3><?= $lang['humidity'] ?></h3>
+                <div class="meteo-value" id="humidity">
+                    <span class="value"></span><span class="unit">%</span>
+                </div>
+            </div>
+            <div class="meteo-card">
+                <div class="meteo-icon"><i class="fas fa-wind"></i></div>
+                <h3><?= $lang['wind_speed'] ?></h3>
+                <div class="meteo-value" id="wind-speed">
+                    <span class="value"></span><span class="unit">km/h</span>
+                </div>
+            </div>
+            <div class="meteo-card">
+                <div class="meteo-icon"><i class="fas fa-compress-alt"></i></div>
+                <h3><?= $lang['pressure'] ?></h3>
+                <div class="meteo-value" id="pressure">
+                    <span class="value"></span><span class="unit">hPa</span>
+                </div>
+            </div>
+            <div class="meteo-card">
+                <div class="meteo-icon"><i class="fas fa-sun"></i></div>
+                <h3><?= $lang['solar_radiation'] ?></h3>
+                <div class="meteo-value" id="radiation">
+                    <span class="value"></span><span class="unit">W/m²</span>
+                </div>
+            </div>
+            <div class="meteo-card">
+                <div class="meteo-icon"><i class="fas fa-cloud-rain"></i></div>
+                <h3><?= $lang['rain'] ?></h3>
+                <div class="meteo-value" id="rain">
+                    <span class="value"></span><span class="unit">mm/h</span>
+                </div>
+            </div>
+            <div class="meteo-card">
+                <div class="meteo-icon"><i class="fas fa-location-arrow wind-direction-icon"></i></div>
+                <h3><?= $lang['wind_direction'] ?></h3>
+                <div class="meteo-value" id="windDirection">
+                    <span class="value"></span><span class="unit">°</span>
+                </div>
+            </div>
+        </section>
                             </div>
                             <!-- Chamada dos status em idiomas diferentes -->
                             <script>
@@ -61,40 +102,6 @@ include 'graficos/carregarpaginainicial.php';
                         </div>
                     </div>
                 </div>
-
-                <div class="elementosAQI">
-                    <!-- Cards dos Poluentes -->
-                    <?php
-                    $poluentes = [
-                        'pm25' => ['PM2.5', 'pm25', 'fine_particulate'],
-                        'pm10' => ['PM10', 'pm10', 'inhalable_particles'],
-                        'o3'   => ['O₃', 'o3', 'ozone'],
-                        'no2'  => ['NO₂', 'no2', 'nitrogen_dioxide'],
-                        'so2'  => ['SO₂', 'so2', 'sulfur_dioxide'],
-                        'co'   => ['CO', 'co', 'carbon_monoxide'],
-                    ];
-
-                    foreach ($poluentes as $id => [$label, $elementId, $descKey]) {
-                        echo <<<HTML
-                        <div class="elemento-card" onclick="flipCard(this)">
-                            <div class="flip-container">
-                                <div class="front">
-                                    <div class="titulo-container">
-                                        <h1>{$lang['iqar']}<br>{$label}</h1>
-                                        <h2 class="elemento-valor" id="{$elementId}">--</h2>
-                                    </div>
-                                </div>
-                                <div class="back">
-                                    <div class="back-content">
-                                        <h2>{$lang['air_quality_index']}</h2>
-                                        <p>{$lang[$descKey]}</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        HTML;
-                    }
-                    ?>
                 </div>
             </div>
         </div>
@@ -105,20 +112,12 @@ include 'graficos/carregarpaginainicial.php';
         <div class="footer-content">
             <p>© 2025 Acoem. <?= $lang['footer_rights'] ?></p>
             <div class="contact-container">
-                <div class="email-contact">
-                    <i class="fas fa-envelope pulse"></i>
-                    <a href="mailto:smamus@portoalegre.rs.gov.br">smamus@portoalegre.rs.gov.br</a>
-                </div>
             </div>
         </div>
         <div id="FooterSeals">
             <a href="https://www.acoem.com/brasil/pt-br/" target="_blank" rel="noopener noreferrer">
                 <img src="src/images/logo-acoem.svg" alt="Logo Acoem" style="margin: 20px;" />
-            </a>
-            <a href="https://prefeitura.poa.br">
-                <img src="src/images/prefeitura Porto Alegre secre.png" alt="<?= $lang['footer_city_hall'] ?>"
-                    style="width: 300px;height: 150px;">
-            </a>
+            
             <div class="secure-seal">
                 <span id="ss_img_wrapper_115-55_image_en">
                     <a href="http://www.alphassl.com/ssl-certificates/wildcard-ssl.html" target="_blank"
