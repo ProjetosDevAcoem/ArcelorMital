@@ -1,0 +1,55 @@
+.login {
+    background-image: url('/assets/img/fundo.jpg');
+    background-size: cover;
+    background-position: center;
+    /* height menor que 100vh para caber o footer */
+    height: calc(100vh - 60px); /* 60px é a altura do footer, ajuste conforme seu footer */
+    flex: 1;
+    display: flex;
+    align-items: center; /* vertical centralizado */
+    flex-direction: row-reverse;
+}
+
+.galeria {
+    margin: 0px;
+    justify-content: end;
+    background: rgba(255, 255, 255, 0.15); /* branco translúcido */
+    backdrop-filter: blur(8px);           /* efeito blur */
+    padding: 30px;
+    border-radius: 15px;
+    max-width: 350px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+    margin-top: 80px;
+    margin-right: 80px;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.principal {
+    justify-content: end;
+}
+#messages {
+    transition: opacity 0.5s ease;
+}
+.fade-message {
+    opacity: 1;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.fade-message.fade-out {
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+}
+
+img {
+    margin-left: 10px;
+}
+
+p.rodape__texto {
+    margin-right: 10px;
+}

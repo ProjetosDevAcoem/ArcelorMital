@@ -1,0 +1,341 @@
+html,
+body {
+    font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: lightgrey;
+    color: #343a40;
+    height: 100%;
+}
+
+/* Layout Principal */
+.container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    flex-direction: row;
+    height: calc(100vh - 80px);
+    overflow: hidden;
+}
+
+/* Ajuste as colunas */
+#center,
+#info {
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#center {
+    overflow: auto;
+    height: 100%;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* Alinha verticalmente */
+    padding: 10px;
+}
+
+table {
+    width: 80%;
+    height: 50%;
+    /* Ajuste a largura da tabela conforme necessário */
+    /* Isso vai centralizar a tabela horizontalmente */
+}
+
+#stations-container {
+    text-align: center;
+    align-items: center;
+}
+
+#tableid {
+    height: 50%;
+}
+
+#info {
+    flex: 0 0 40%;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    overflow-y: auto;
+    border-left: 2px solid #ccc;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    height: 100%;
+    /* Permite que a altura do #info se ajuste ao conteúdo */
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+button,
+select {
+    cursor: pointer;
+    font-size: 16px;
+    padding: 5px;
+}
+
+button {
+    width: 40px;
+    height: 40px;
+    border: none;
+}
+
+.available {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.selected {
+    background-color: #1f5822;
+    color: white;
+}
+
+.disabled {
+    color: #aaa;
+    background-color: #f0f0f0;
+    cursor: default;
+}
+
+.dropdowns {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+}
+
+.info {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+}
+
+.station-title {
+    color: #2c3e50;
+    margin-bottom: 10px;
+    font-size: 1.8em;
+}
+
+.aqi-box {
+    background: #f8f9fa;
+    border-radius: 8px;
+    padding: 20px;
+    margin: 15px 0;
+}
+
+.aqi-status {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.status-indicator {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+}
+
+.moderate {
+    background-color: #ffba08;
+}
+
+.aqi-details {
+    display: flex;
+    justify-content: space-around;
+    padding: 10px 0;
+}
+
+.detail-item {
+    text-align: center;
+}
+
+.label {
+    color: #6c757d;
+    font-size: 0.9em;
+    display: block;
+}
+
+.value {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+.elementosAQI {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+/* Card Styles */
+.elemento-card {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    perspective: 1000px;
+    height: 180px;
+    width: 100%;
+    cursor: pointer;
+}
+
+/* Remove hover raise effect since we're adding flip */
+.elemento-card:hover {
+    /* transform: translateY(-5px); - Remove this */
+}
+
+/* Add hover flip effect */
+.elemento-card:hover .flip-container {
+    transform: rotateY(180deg);
+}
+
+.flip-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    transition: transform 0.5s ease-out;
+    transform-style: preserve-3d;
+}
+
+/* Center content for both sides */
+.front,
+.back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    overflow: hidden;
+    /* Prevent text overflow */
+}
+
+.back {
+    transform: rotateY(180deg);
+}
+
+/* Front content centering */
+.titulo-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+}
+
+.titulo-container h1 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.1rem;
+    color: #2D3E5D;
+    line-height: 1.2;
+}
+
+.elemento-valor {
+    margin: 0.3rem 0;
+    font-size: 1.6rem;
+    color: #2D3E5D;
+}
+
+.unidade {
+    display: block;
+    color: #666;
+    font-size: 0.75rem;
+    margin-top: 0.2rem;
+}
+
+/* Back content centering */
+.back-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 90%;
+    height: 90%;
+}
+
+.back-content h2 {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #2D3E5D;
+    line-height: 1.2;
+}
+
+.back-content p {
+    margin: 0.6rem 0 0 0;
+    font-size: 0.85rem;
+    color: #4a5d80;
+    line-height: 1.2;
+}
+
+/* Mobile-specific overrides */
+@media screen and (max-width: 768px) {
+
+    /* For mobile, we need to disable hover effects and use touch instead */
+    .elemento-card:hover .flip-container {
+        transform: rotateY(0deg);
+        /* Disable hover flip on mobile */
+    }
+
+    /* Add touch-specific classes that will be added via JS */
+    .elemento-card.touch-flip .flip-container {
+        transform: rotateY(180deg);
+    }
+
+    .front,
+    .back {
+        padding: 0.6rem;
+    }
+
+    .titulo-container h1 {
+        font-size: 1rem;
+    }
+
+    .elemento-valor {
+        font-size: 1.5rem;
+    }
+
+    .back-content {
+        width: 95%;
+    }
+
+    .back-content h2 {
+        font-size: 0.9rem;
+    }
+
+    .back-content p {
+        font-size: 0.8rem;
+        margin-top: 0.4rem;
+    }
+}
+
+.elemento-card i {
+    font-size: 24rem;
+    color: #3498db;
+    margin-bottom: 10px;
+}
+
+.elemento-card h4 {
+    margin: 10px 0;
+    color: #2c3e50;
+}
+
+.elemento-card .valor {
+    color: #34495e;
+    font-size: 1.1em;
+    font-weight: 500;
+}

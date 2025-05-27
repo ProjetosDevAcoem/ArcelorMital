@@ -1,0 +1,30 @@
+.table thead th {
+    font-weight: 600;
+    background-color: #343a40;
+    color: white;
+}
+
+.table td, .table th {
+    vertical-align: middle;
+    padding: 1rem;
+}
+
+table {
+    width: 100%;
+    height: 10%;
+    /* Ajuste a largura da tabela conforme necessário */
+    /* Isso vai centralizar a tabela horizontalmente */
+}
+
+.table tbody tr:hover {
+    background-color: #f1f1f1;
+    transition: background-color 0.2s;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.botaoFiltro{
+    justify-content: space-between;
+}

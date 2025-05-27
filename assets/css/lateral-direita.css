@@ -1,0 +1,44 @@
+.info{
+    display: flex;
+    justify-content: center;
+}
+.info__tabela{
+    text-align: center;
+}
+.info__title{
+    font-size: larger;
+}
+h1.aqi-box-title{
+    font-size: 30px;
+}
+.aqi-box{
+    font-size: 22px;
+    width: 525px;
+    border-radius: 5px;
+    background-color: #ffffff;
+    border: 2px solid #2d3e5d;
+    box-shadow: 10px 10px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-bottom: 0px;
+}
+/* .detail-item{
+} */
+.aqi-value{
+    border-radius: 5px;
+    border: 2px solid #000000;
+    padding: 5px;
+    font-size: 2rem;
+    background-color: #00e400;
+}
+.status-text{
+    font-size: 30px;
+}
+.aqi-box-elements{
+    height: 190px;
+}
+.elemento-card{
+    height:120px;
+}

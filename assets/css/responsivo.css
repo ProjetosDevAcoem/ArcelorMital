@@ -1,0 +1,139 @@
+/* Ajustes para telas menores/dispositivos móveis */
+@media screen and (max-width: 768px) {
+    .legenda-qualidade-ar {
+        bottom: 20px;
+        right: 20px;
+        width: 80%;
+        /* Ajusta largura relativa à tela */
+        max-width: 300px;
+        /* Limita tamanho máximo */
+    }
+
+    .legenda-qualidade-ar img {
+        width: 100%;
+        /* Usa largura total do container */
+        height: auto;
+    }
+}
+
+/* Ajustes para telas muito pequenas */
+@media screen and (max-width: 480px) {
+    .legenda-qualidade-ar {
+        bottom: 10px;
+        right: 10px;
+        width: 90%;
+        /* Aumenta largura relativa em telas menores */
+        max-width: 250px;
+    }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+
+    body{
+        width: 100%;
+    }
+    .title{
+        text-align: center;
+    }
+    .nav__list{
+        display: flex;
+        text-align: center;
+        align-items: center;
+        flex-direction: column;
+        gap: 30px;
+    }
+    div.info__tabela {
+        height: 200px;
+        overflow: hidden;
+
+    }
+    main .elementosAQI{
+    }
+    .elemento-card{
+        display: flex;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+        overflow: hidden;
+        padding-right: 25px;
+        padding-left: 25px;
+        padding-top: 30px;
+        padding-bottom: 60px;
+    }
+    div.info-tabela > h2{  
+        color: yellow;
+        white-space: normal; /* Permite que o texto quebre normalmente */
+        overflow-wrap: break-word; /* Faz a quebra de linha nos espaços */
+    }
+    .info{
+        justify-content: center;
+        position: relative;
+        overflow: hidden;
+        gap: 10px;
+    }
+    .nav__grid{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav__grid > h1{
+        text-align: center;
+    }
+    .nav__grid > img{
+        justify-self: end;
+    }
+    div.elementosAQI{
+        display: grid;
+        grid-template-columns: 50vw 50vw;
+        transform: scale(0.9); /* Reduz o tamanho para 80% */
+        transform-origin: center; /* Aplica a transformação a partir do centro do item */
+    }
+    
+    div.container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        width: 100%;
+        padding: 0px;
+        padding-right: 0px;
+        padding-left: 0px;
+        /* Muda para vertical no mobile */
+    }   
+
+    #center {
+        height: 600px;
+    }
+
+    .body__main{
+        display: flex;
+        flex-direction: column;
+    }
+
+    footer{
+        display: flex;
+        flex-direction: column;
+    }
+    #map{
+        height: 600px;
+    }
+    #FooterSeals{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    .aqi-box-elements {
+        height: 500px;
+    }
+    .info__tabela h2{
+        font-size: 24px;
+    }
+    div.info__tabela {
+        height: 300px;
+        overflow: hidden;
+    }
+    .elementosAQI > div{
+        padding: 20px;
+    }
+}
