@@ -1,4 +1,18 @@
 let colunasAtuais = [];
+const nomesLayoutHeader = {
+    TimeStamp: 'Data/Hora',
+    Tag: 'Tag',
+    temp: 'Temperatura',
+    umid: 'Umidade',
+    press: 'Pressão',
+    vel: 'Vel. Vento',
+    chuva: 'Chuva',
+    rad: 'Radiação',
+    dir: 'Direção do Vento',
+    status: 'Status',
+    comentario: 'Comentário'
+};
+
 
 // Função para pegar as colunas selecionadas no modal ou no formulário
 function pegarColunasSelecionadas() {
@@ -84,7 +98,7 @@ document.getElementById('filterForm').addEventListener('submit', function(event)
             colunasAtuais.forEach(col => {
                 const th = document.createElement('th');
                 th.className = `coluna-${col}`;
-                th.textContent = col;
+                th.textContent = nomesLayoutHeader[col] || col;
                 trHead.appendChild(th);
             });
             thead.appendChild(trHead);

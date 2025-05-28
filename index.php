@@ -23,62 +23,99 @@ include 'graficos/carregarpaginainicial.php';
                 <div class="col-md-8" id="">
                     <div id="map">
                         <!-- Legenda -->
-                        <div class="legenda-qualidade-ar" style="position: absolute; bottom: 10px; left: 10px; z-index: 1000;">
+                        <!-- <div class="legenda-qualidade-ar" style="position: absolute; bottom: 10px; left: 10px; z-index: 1000;">
                             <img src="<?= $lang['air_quality_legend_url'] ?>" alt="<?= $lang['air_quality_legend'] ?>">
-                        </div>
+                        </div> -->
                     </div>
                 </div>
 
                 <!-- Coluna dos ícones meteorológicos -->
+                <style>
+                    .stationHeader{
+                        display: flex; 
+                        flex-direction: column; 
+                        align-items: center;                      
+                        background: linear-gradient(145deg, #ffffff, #f5f7fa);
+                        border-radius: 15px;
+                        padding: 1.5rem;
+                        text-align: center;
+                        box-shadow: 0 8px 20px rgba(45, 62, 93, 0.08);
+                        transition: transform 0.3s ease;
+                        border: 1px solid rgba(255, 255, 255, 0.8);                       
+                    }
+                    section.stationHeader{
+                        margin-top: 15px;
+                        margin-bottom: 10px;
+                    }
+                    section.stationHeader:hover {
+                        transform: translateY(-5px);
+                    }
+                    .meteo-value {
+                        display: flex;
+                        align-items: center;
+                        justify-content: center;
+                    }
+                </style>
                 <div class="col-md-4">
+                    <section class = "stationHeader">
+                        <h2 id="StationTitle"></h2> 
+                        <span id="date" class="date"></span>
+                    </section>
                     <section class="meteo-grid">
                         <div class="meteo-card">
                             <div class="meteo-icon"><i class="fas fa-temperature-high"></i></div>
                             <h3><?= $lang['temperature'] ?></h3>
-                            <div class="meteo-value" id="temperature">
-                                <span class="value"></span><span class="unit">°C</span>
+                            <div class="meteo-value">
+                                <span id="temperature" class="value"></span><span class="unit">°C</span>
                             </div>
                         </div>
                         <div class="meteo-card">
                             <div class="meteo-icon"><i class="fas fa-tint"></i></div>
                             <h3><?= $lang['humidity'] ?></h3>
-                            <div class="meteo-value" id="humidity">
-                                <span class="value"></span><span class="unit">%</span>
+                            <div class="meteo-value">
+                                <span id="humidity" class="value"></span><span class="unit">%</span>
                             </div>
                         </div>
                         <div class="meteo-card">
                             <div class="meteo-icon"><i class="fas fa-wind"></i></div>
                             <h3><?= $lang['wind_speed'] ?></h3>
-                            <div class="meteo-value" id="wind-speed">
-                                <span class="value"></span><span class="unit">km/h</span>
+                            <div class="meteo-value">
+                                <span id="wind-speed" class="value"></span><span class="unit">km/h</span>
                             </div>
                         </div>
                         <div class="meteo-card">
                             <div class="meteo-icon"><i class="fas fa-compress-alt"></i></div>
                             <h3><?= $lang['pressure'] ?></h3>
-                            <div class="meteo-value" id="pressure">
-                                <span class="value"></span><span class="unit">hPa</span>
+                            <div class="meteo-value">
+                                <span id="pressure" class="value"></span><span class="unit">hPa</span>
                             </div>
                         </div>
                         <div class="meteo-card">
                             <div class="meteo-icon"><i class="fas fa-sun"></i></div>
                             <h3><?= $lang['solar_radiation'] ?></h3>
-                            <div class="meteo-value" id="radiation">
-                                <span class="value"></span><span class="unit">W/m²</span>
+                            <div class="meteo-value">
+                                <span id="radiation" class="value"></span><span class="unit">W/m²</span>
                             </div>
                         </div>
                         <div class="meteo-card">
                             <div class="meteo-icon"><i class="fas fa-cloud-rain"></i></div>
                             <h3><?= $lang['rain'] ?></h3>
-                            <div class="meteo-value" id="rain">
-                                <span class="value"></span><span class="unit">mm/h</span>
+                            <div class="meteo-value">
+                                <span id="rain" class="value"></span><span class="unit">mm/h</span>
                             </div>
                         </div>
                         <div class="meteo-card">
                             <div class="meteo-icon"><i class="fas fa-location-arrow wind-direction-icon"></i></div>
                             <h3><?= $lang['wind_direction'] ?></h3>
-                            <div class="meteo-value" id="windDirection">
-                                <span class="value"></span><span class="unit">°</span>
+                            <div class="meteo-value">
+                                <span id="windDirection" class="value"></span><span class="unit">°</span>
+                            </div>
+                        </div>
+                        <div class="meteo-card">
+                            <div class="meteo-icon"><i class="fas fa-location-arrow wind-direction-icon"></i></div>
+                            <h3> futura Temperatura interna</h3>
+                            <div class="meteo-value">
+                                <span id="tempi" class="value"></span><span class="unit">°</span>
                             </div>
                         </div>
                     </section>
@@ -103,7 +140,6 @@ include 'graficos/carregarpaginainicial.php';
             <script>
                 const currentLang = "<?= $_SESSION['lang'] ?>";
             </script>
-            <span id="date" class="date"></span>
         </div>
     </main>
 

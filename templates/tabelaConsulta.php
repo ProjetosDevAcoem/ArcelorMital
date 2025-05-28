@@ -98,7 +98,12 @@ include '../partials/header.php';
                 <label><input type="checkbox" name="columns[]" value="rad" checked> Radiação</label><br>
                 <label><input type="checkbox" name="columns[]" value="dir" checked> Direção</label><br>   
 
-                <button type="button" class="btn btn-primary mt-3" data-bs-dismiss="modal" id="btnSalvarColunas">
+                <style>
+                  .botaoSalvar{
+                    width: auto;
+                  }
+                </style>
+                <button type="button" class="btn btn-primary mt-3 botaoSalvar" data-bs-dismiss="modal" id="btnSalvarColunas">
                   Salvar
                 </button>
               </div>
@@ -126,15 +131,15 @@ include '../partials/header.php';
             <div class="table-responsive shadow rounded-3 my-4">
             <table id="tabelaDados" class="table table-striped table-bordered">
               <thead id="theadTabela">
-                <tr>
+                <tr style="display: none";>
                   <th class="coluna-TimeStamp">TimeStamp</th>
                   <th class="coluna-Tag">Tag</th>
-                  <th class="coluna-temp">temp</th>
-                  <th class="coluna-umid">umid</th>
-                  <th class="coluna-press">press</th>
-                  <th class="coluna-vel">vel</th>
-                  <th class="coluna-chuva">chuva</th>
-                  <th class="coluna-rad">rad</th>
+                  <th class="coluna-temp">Temperatura</th>
+                  <th class="coluna-umid">Umidade</th>
+                  <th class="coluna-press">Pressão</th>
+                  <th class="coluna-vel">Velocidade</th>
+                  <th class="coluna-chuva">Chuva</th>
+                  <th class="coluna-rad">Radiação</th>
                 </tr>
               </thead>
               <tbody id="dadosTabela">
@@ -154,7 +159,7 @@ include '../partials/header.php';
                       echo "</tr>";
                   }
               } else {
-                  echo '<tr><td colspan="9" class="text-center">Nenhum dado disponível para os filtros selecionados.</td></tr>';
+                  echo '<tr><td colspan="9" class="text-center d-none">Nenhum dado disponível para os filtros selecionados.</td></tr>';
               }
               ?>
               </tbody>

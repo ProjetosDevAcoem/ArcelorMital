@@ -74,7 +74,7 @@ function processStationData(station) {
 
     const popupContent = `
         <div style="text-align: center;">
-            <p>Name: ${tag}</p>
+            <p>${tag}</p>
         </div>
     `;
     marker.bindTooltip(popupContent, { direction: "top", permanent: false });
@@ -137,14 +137,17 @@ function exibirDadosEstacao(TableName) {
     console.log(dataFormatada);
 
     if (estacao) {
-        const temp = `<p>${estacao.temp}</p>`;
-        const umid = `<p>${estacao.umid}</p>`;
-        const vel = `<p>${estacao.vel}</p>`;
-        const pressure = `<p>${estacao.pressure}</p>`;
-        const radiation = `<p>${estacao.radiation}</p>`;
-        const rain = `<p>${estacao.rain}</p>`;
-        const dir = `<p>${estacao.dir}</p>`;
+        const tag = `<h2>${estacao.Tag || '--'}<h2>`;
+        const temp = `<p>${estacao.temp || '--'}</p>`;
+        const umid = `<p>${estacao.umid || '--'}</p>`;
+        const vel = `<p>${estacao.vel || '--'}</p>`;
+        const pressure = `<p>${estacao.pressure || '--'}</p>`;
+        const radiation = `<p>${estacao.radiation || '--'}</p>`;
+        const rain = `<p>${estacao.rain || '--'}</p>`;
+        const dir = `<p>${estacao.dir || '--'}</p>`;
 
+        const date = estacao.TimeStamp ? new Date(estacao.TimeStamp * 1000).toLocaleString() : '';
+        document.getElementById("StationTitle").innerHTML = tag;
         document.getElementById("date").innerHTML = date;
         document.getElementById("temperature").innerHTML = temp;
         document.getElementById("humidity").innerHTML = umid;
@@ -191,51 +194,51 @@ function formatTimestamp(timestamp) {
 }
 
 // Função para classificar o valor do AQI e retornar o ícone apropriado
-function getAQIClassification(aqi) {
-    if (aqi <= 40) {
-        return {
-            color: '#00e400',
-            classification: langStatus.status_good,
-            icon: "src/images/icone acoem boa A2.svg",
-            Desc: langStatus.desc_good
-        };
-    } else if (aqi <= 80) {
-        return {
-            color: '#f7d400',
-            classification: langStatus.status_moderate,
-            icon: "/src/images/icone acoem moderada A3.svg",
-            Desc: langStatus.desc_moderate
-        };
-    } else if (aqi <= 120) {
-        return {
-            color: '#ff7e00',
-            classification: langStatus.status_bad,
-            icon: "/src/images/icone acoem ruim A2.svg",
-            Desc: langStatus.desc_bad
-        };
-    } else if (aqi <= 200) {
-        return {
-            color: '#ff0000',
-            classification: langStatus.status_very_bad,
-            icon: "/src/images/icone acoem muito ruim A2.svg",
-            Desc: langStatus.desc_very_bad
-        };
-    } else if (aqi <= 300) {
-        return {
-            color: '#950e61',
-            classification: langStatus.status_terrible,
-            icon: "/src/images/icone acoem péssima A2.svg",
-            Desc: langStatus.desc_terrible
-        };
-    } else {
-        return {
-            color: 'grey',
-            classification: langStatus.status_inactive,
-            icon: "/src/images/icone acoem desativado A2.svg",
-            Desc: langStatus.desc_inactive
-        };
-    }
-}
+// function getAQIClassification(aqi) {
+//     if (aqi <= 40) {
+//         return {
+//             color: '#00e400',
+//             classification: langStatus.status_good,
+//             icon: "src/images/icone acoem boa A2.svg",
+//             Desc: langStatus.desc_good
+//         };
+//     } else if (aqi <= 80) {
+//         return {
+//             color: '#f7d400',
+//             classification: langStatus.status_moderate,
+//             icon: "/src/images/icone acoem moderada A3.svg",
+//             Desc: langStatus.desc_moderate
+//         };
+//     } else if (aqi <= 120) {
+//         return {
+//             color: '#ff7e00',
+//             classification: langStatus.status_bad,
+//             icon: "/src/images/icone acoem ruim A2.svg",
+//             Desc: langStatus.desc_bad
+//         };
+//     } else if (aqi <= 200) {
+//         return {
+//             color: '#ff0000',
+//             classification: langStatus.status_very_bad,
+//             icon: "/src/images/icone acoem muito ruim A2.svg",
+//             Desc: langStatus.desc_very_bad
+//         };
+//     } else if (aqi <= 300) {
+//         return {
+//             color: '#950e61',
+//             classification: langStatus.status_terrible,
+//             icon: "/src/images/icone acoem péssima A2.svg",
+//             Desc: langStatus.desc_terrible
+//         };
+//     } else {
+//         return {
+//             color: 'grey',
+//             classification: langStatus.status_inactive,
+//             icon: "/src/images/icone acoem desativado A2.svg",
+//             Desc: langStatus.desc_inactive
+//         };
+//     }
+// }
 
 // Função para exibir a classificação no HTML
 function updateStatus(aqi) {

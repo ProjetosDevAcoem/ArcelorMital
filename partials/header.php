@@ -9,6 +9,12 @@ include(__DIR__ . '/../lang/langConfig.php');
 <head>
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- FontAwesome -->
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-…"
+          crossorigin="anonymous"
+          referrerpolicy="no-referrer" />
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -16,7 +22,15 @@ include(__DIR__ . '/../lang/langConfig.php');
 <header>
     <nav class="nav__grid">
         
-        <button></button>
+        <!-- Logo -->
+        <a href="index.php">
+            <img class="image"
+                 src="/images/logo-arcelormittal.gif"
+                 alt="ArcelorMittal"
+                 title="ArcelorMittal"
+                 loading="lazy"
+                 width="179" height="73">
+        </a>
 
         <!-- Título -->
         <div style="text-align: center">
@@ -28,20 +42,24 @@ include(__DIR__ . '/../lang/langConfig.php');
                 <a href="../templates/poluentesMonitorados.php"><li><?= $lang['menu_evolucao'] ?></li></a>
 
                 <?php if (isset($_SESSION['nivel_permissao']) && $_SESSION['nivel_permissao'] === 'admin'): ?>
-                    <a href="../templates/tabelaConsulta.php"><li>Tabela</li></a>
+                    <a href="../templates/tabelaConsulta.php"><li>Relatórios de Dados</li></a>  <!-- termo mais profissional -->
                 <?php endif; ?>
             </ul>
         </div>
         <!-- Botão do offcanvas -->
-        <button class="btn btn- " type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasRight" aria-controls="offcanvasRight">
-            <i class="fas fa-cog"></i>
+        <button class="btn btn-outline-light ms-auto"
+                type="button"
+                data-bs-toggle="offcanvas"
+                data-bs-target="#offcanvasRight"
+                aria-controls="offcanvasRight">
+            <i class="fas fa-sliders-h"></i>
         </button>
 
         <!-- OFFCANVAS -->
         <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasRight" aria-labelledby="offcanvasRightLabel">
             <div class="offcanvas-header">
-                <h5 id="offcanvasRightLabel">Configurações</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar"></button>
+                <h5 id="offcanvasRightLabel">Configurações da Conta</h5>                   <!-- texto mais específico -->
+                <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Fechar painel"></button>
             </div>
             <div class="offcanvas-body">
 
@@ -56,12 +74,14 @@ include(__DIR__ . '/../lang/langConfig.php');
 
                 <!-- Botão para abrir cadastrar.php em nova aba -->
                 <?php if (isset($_SESSION['nivel_permissao']) && $_SESSION['nivel_permissao'] === 'admin'): ?>
-                    <a href="../cadastrar.php" target="_blank" class="btn btn-outline-primary w-100 mb-3">
-                        Cadastrar novos usuários
+                    <a href="cadastrar.php" target="_blank" class="btn btn-outline-primary w-100 mb-3">
+                        Registrar Usuários                 <!-- termo mais profissional -->
                     </a>
                 <?php endif; ?>
                 <!-- Logout -->
-                <a href="logout.php" target="_blank" class="btn btn-outline-primary w-100"><li><?= $lang['menu_logout'] ?></li></a>
+                <a href="logout.php" target="_blank" class="btn btn-outline-primary w-100">
+                    Sair do Sistema                    <!-- texto mais formal -->
+                </a>
             </div>
         </div>
     </nav>
