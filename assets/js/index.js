@@ -8,9 +8,9 @@ const tiles = L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 // Função para buscar os dados das estações
 async function fetchStationData(timestamp) {
-    let url = "back/file.php"
+    let url = "../back/file.php"
     if (timestamp != null) {
-        url = `back/file?timestamp=${timestamp}`; // URL do seu arquivo PHP que retorna os dados das estações
+        url = `../back/file.php?timestamp=${timestamp}`; // URL do seu arquivo PHP que retorna os dados das estações
     }
 
     try {
@@ -101,7 +101,7 @@ function processStationData(station) {
 
 // Dados da estação que serão exibidos no layout principal
 function carregarDadosEstacoes() {
-    fetch("back/file.php") // Arquivo PHP que retorna o JSON
+    fetch("../back/file.php") // Arquivo PHP que retorna o JSON
         .then(response => response.json())
         .then(dados => {
             estacoes = dados; // Salva os dados para uso posterior
@@ -115,34 +115,13 @@ function carregarDadosEstacoes() {
 function exibirDadosEstacao(TableName) {
     const estacao = estacoes.find(est => est.TableName === TableName);
 
-    // Opções corretas para formatação de data
-    const opcoes = { 
-        day: 'numeric', 
-        month: 'long', 
-        hour: '2-digit', 
-        minute: '2-digit', 
-        year: 'numeric', 
-        timeZone: 'America/Sao_Paulo' 
-    };
-
-    let dataFormatada = langStatus.date_unavailable;
-    if (estacao.TimeStamp) {
-        let timestamp = Number(estacao.TimeStamp);
-        if (timestamp < 1e12) timestamp *= 1000;
-
-        const locale = langMap[currentLang] || 'pt-BR'; // fallback em caso de erro
-        dataFormatada = new Date(timestamp).toLocaleDateString(locale, opcoes);
-    }
-
-    console.log(dataFormatada);
-
     if (estacao) {
         const tag = `<h2>${estacao.Tag || '--'}<h2>`;
         const temp = `<p>${estacao.temp || '--'}</p>`;
         const umid = `<p>${estacao.umid || '--'}</p>`;
         const vel = `<p>${estacao.vel || '--'}</p>`;
-        const pressure = `<p>${estacao.pressure || '--'}</p>`;
-        const radiation = `<p>${estacao.radiation || '--'}</p>`;
+        const pressure = `<p>${estacao.press || '--'}</p>`;
+        const radiation = `<p>${estacao.rad || '--'}</p>`;
         const rain = `<p>${estacao.rain || '--'}</p>`;
         const dir = `<p>${estacao.dir || '--'}</p>`;
 

@@ -24,20 +24,8 @@ include(__DIR__ . '/../lang/langConfig.php');
 
 <header>
     <nav class="nav__grid">
-        
-        <!-- Logo -->
-        <a href="index.php">
-            <img class="image"
-                 src=""
-                 alt=""
-                 title=""
-                 loading="lazy"
-                 width="179" height="73">
-        </a>
-
         <!-- Título -->
         <div style="text-align: center">
-            <h1><?= $lang['title'] ?></h1>
 
             <!-- Menu principal -->
             <ul class="nav__list">

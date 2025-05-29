@@ -17,7 +17,6 @@
 .meteo-card {
     background: linear-gradient(145deg, #ffffff, #f5f7fa);
     border-radius: 15px;
-    padding: 1.5rem;
     text-align: center;
     box-shadow: 0 8px 20px rgba(45, 62, 93, 0.08);
     transition: transform 0.3s ease;
@@ -40,12 +39,10 @@
 .meteo-card h3 {
     color: #4a5d80;
     font-size: 1.2rem;
-    margin-bottom: 1rem;
 }
 
 /* Valores meteorológicos */
 .meteo-value {
-    font-size: 2rem;
     font-weight: 600;
     color: #2D3E5D;
 }

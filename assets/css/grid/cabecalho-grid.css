@@ -1,7 +1,9 @@
-.nav__grid {
+.nav__grid{
+    display: flex;
+}
+.row{
     display: grid;
-    grid-template-columns: 1fr auto 1fr;
-    gap: 5px;
+    grid-template-columns: 1fr 1fr 1fr;   
 }
 .nav__grid a img {
     height: 80px;
@@ -17,7 +19,6 @@
     font-size: 15px;
     gap: 100px;
     padding-right: 10px;
-    margin-top: 40px;
     margin-right: 40px;
     align-items: end;
     justify-content: end;

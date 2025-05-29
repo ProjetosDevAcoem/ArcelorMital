@@ -136,7 +136,6 @@ header {
     background: linear-gradient(90deg, #2D3E5D 0%, #1a2538 100%);
     color: white;
     padding: 1.5rem;
-    margin-top: 2rem;
 }
 
 #map {
@@ -162,6 +161,10 @@ header {
     text-transform: uppercase;
     letter-spacing: 1px;
 }
+.d-flex.flex-column.flex-shrink-0.p-3.text-white.bg-dark{
+    background-color: #464c59;
+}
+
 
 @media (max-width: 768px) {
     .container {

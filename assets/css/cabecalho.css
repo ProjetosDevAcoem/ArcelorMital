@@ -17,7 +17,6 @@ header {
     font-size: 1.5rem;
     font-weight: bold;
     padding: 15px;
-    border-bottom: 4px solid #a3badd;
     align-items: center; /* Alinha verticalmente os itens */
     position: relative; /* Para permitir o posicionamento absoluto do botão */
 }
