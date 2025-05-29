@@ -1,6 +1,7 @@
 <?php
-session_start();
-
+if (session_status() !== PHP_SESSION_ACTIVE) {
+  session_start();
+}
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.php");
     exit;
@@ -13,7 +14,7 @@ include '../partials/header.php';
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Usuários</title>
+  <title id="page-title"><?= $lang['page_title_met'] ?></title>
 
   <!-- CSS principal -->
   <link rel="stylesheet" href="../assets/css/normalize.css" />
@@ -172,7 +173,7 @@ include '../partials/header.php';
         </div>
       </div>
     </main>
-    <script src="../gerartabela.js"></script>
+    <script src="../assets/js/gerartabela.js"></script>
   </body>
 </html>
 

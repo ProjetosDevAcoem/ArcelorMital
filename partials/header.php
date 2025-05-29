@@ -1,4 +1,7 @@
 <?php
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 // Verifica se o usuário está logado
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.php");
@@ -25,9 +28,9 @@ include(__DIR__ . '/../lang/langConfig.php');
         <!-- Logo -->
         <a href="index.php">
             <img class="image"
-                 src="/images/logo-arcelormittal.gif"
-                 alt="ArcelorMittal"
-                 title="ArcelorMittal"
+                 src=""
+                 alt=""
+                 title=""
                  loading="lazy"
                  width="179" height="73">
         </a>
@@ -71,15 +74,8 @@ include(__DIR__ . '/../lang/langConfig.php');
                         <option value="es" <?= $_SESSION['lang'] == 'es' ? 'selected' : '' ?>>🇪🇸 <?= $lang['lang_es'] ?></option>
                     </select>
                 </form>
-
-                <!-- Botão para abrir cadastrar.php em nova aba -->
-                <?php if (isset($_SESSION['nivel_permissao']) && $_SESSION['nivel_permissao'] === 'admin'): ?>
-                    <a href="cadastrar.php" target="_blank" class="btn btn-outline-primary w-100 mb-3">
-                        Registrar Usuários                 <!-- termo mais profissional -->
-                    </a>
-                <?php endif; ?>
                 <!-- Logout -->
-                <a href="logout.php" target="_blank" class="btn btn-outline-primary w-100">
+                <a href="../logout.php" class="btn btn-outline-primary w-100">
                     Sair do Sistema                    <!-- texto mais formal -->
                 </a>
             </div>

@@ -1,6 +1,8 @@
 <?php
-session_start();
-
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
+// Verifica se o usuário está logado
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.php");
     exit;

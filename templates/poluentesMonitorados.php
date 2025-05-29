@@ -1,6 +1,7 @@
 <?php
-session_start();
-
+if (session_status() !== PHP_SESSION_ACTIVE) {
+    session_start();
+}
 if (!isset($_SESSION['usuario_id'])) {
     header("Location: login.php");
     exit;
@@ -9,7 +10,6 @@ include '../lang/langConfig.php';
 include '../partials/head.php';
 include '../partials/header.php';
 ?>
-<?php include '../graficos/gerarGraficoAQI.php'; ?>
 <body>
 <head>
         
@@ -141,8 +141,6 @@ include '../partials/header.php';
             </div>
         </div>
     </footer>
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-    <script src="../index.js"></script>
 </body>
 
 </html>

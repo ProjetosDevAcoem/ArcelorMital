@@ -16,7 +16,7 @@ include 'graficos/carregarpaginainicial.php';
 
 <body>
     <!-- Main body -->
-    <main class="body__main">
+    <main class="body__main" style="background-color: white;">
         <div class="">
             <div class="row">
                 <!-- Coluna do mapa -->
@@ -170,8 +170,7 @@ include 'graficos/carregarpaginainicial.php';
     </footer>
 
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
-    <script src="index.js"></script>
-    <script src="/assets/js/botaoIdioma.js"></script>
+    <script src="../assets/js/index.js"></script>
 </body>
 
 </html>
