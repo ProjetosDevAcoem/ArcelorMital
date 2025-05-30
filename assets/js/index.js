@@ -1,3 +1,11 @@
+document.addEventListener("DOMContentLoaded", () => {
+    carregarDadosEstacoes().then(() => {
+        criarBotoes();
+        criarEventosBotoes();
+    });
+});
+
+
 // Inicializa o mapa
 const map = L.map('map').setView([-30.114092, -51.142017], 12);
 
@@ -45,7 +53,7 @@ function processStationData(station) {
     const nomeDatabela = station.TableName;
     const tag = station.Tag;
 
-    let aqiDetails = { color: 'gray', classification: 'N/A', icon: "/src/images/icone acoem desativado A2.svg", Desc: 'No data available' };
+    let aqiDetails = { color: 'gray', classification: 'N/A', icon: "/src/images/icone acoem boa A2.svg", Desc: 'No data available' };
 
     const marker = CreateMarker(latitude, longitude, aqiDetails.icon);
     //Aproxima a tela ao clicar.
@@ -100,15 +108,18 @@ function processStationData(station) {
 }
 
 // Dados da estação que serão exibidos no layout principal
-function carregarDadosEstacoes() {
-    fetch("../back/file.php") // Arquivo PHP que retorna o JSON
-        .then(response => response.json())
-        .then(dados => {
-            estacoes = dados; // Salva os dados para uso posterior
-
-        })
-        .catch(error => console.error("Erro ao buscar dados das estações:", error));
+async function carregarDadosEstacoes() {
+    try {
+        const response = await fetch("../back/file.php"); // Arquivo PHP que retorna o JSON
+        const dados = await response.json();
+        estacoes = dados; // Salva os dados para uso posterior
+        return dados;
+    } catch (error) {
+        console.error("Erro ao buscar dados das estações:", error);
+        return []; // Retorna array vazio em caso de erro
+    }
 }
+
 
 
 // Função para exibir os dados na tela ao clicar no mapa
@@ -138,11 +149,6 @@ function exibirDadosEstacao(TableName) {
     }
 }
 
-
-// Chama a função ao carregar a página
-document.addEventListener("DOMContentLoaded", carregarDadosEstacoes);
-
-
 // Função para criar o marcador no mapa
 function CreateMarker(latitude, longitude, icon) {
     const KunakIcon = L.icon({
@@ -156,21 +162,48 @@ function CreateMarker(latitude, longitude, icon) {
 }
 let markers = [];
 
-// Função para remover todos os marcadores
-function removeMarkers() {
-    markers.forEach(marker => {
-        map.removeLayer(marker); // Remove o marcador do mapa
+function criarBotoes() {
+    const container = document.getElementById("stationButtonsContainer");
+    container.innerHTML = ''; // limpa antes, evita duplicar
+    estacoes.forEach(est => {
+        const btn = document.createElement("button");
+        btn.id = `estationButton_${est.TableName}`;
+        btn.className = "btn btn-primary w-100 mb-2";
+        btn.textContent = est.Tag || est.TableName;
+        container.appendChild(btn);
     });
-    markers = []; // Limpa o array de marcadores
 }
 
-// Função para formatar a data do TimeStamp
-function formatTimestamp(timestamp) {
-    if (!timestamp) return "N/A";
-    const date = new Date(timestamp);
-    if (isNaN(date.getTime())) return "N/A"; // Verifica se é uma data válida
-    return date.toLocaleString(); // Formata para data e hora local
+
+//botão estação
+function criarEventosBotoes() {
+    // Exemplo: botões com ID fixo ou dinâmica baseada na TableName
+    estacoes.forEach(est => {
+        const btn = document.getElementById(`estationButton_${est.TableName}`);
+        if (btn) {
+            btn.addEventListener('click', () => {
+                map.setView([est.Latitude, est.Longitude], 14);
+                exibirDadosEstacao(est.TableName);
+            });
+        }
+    });
 }
+
+// Função para remover todos os marcadores
+// function removeMarkers() {
+//     markers.forEach(marker => {
+//         map.removeLayer(marker); // Remove o marcador do mapa
+//     });
+//     markers = []; // Limpa o array de marcadores
+// }
+
+// Função para formatar a data do TimeStamp
+// function formatTimestamp(timestamp) {
+//     if (!timestamp) return "N/A";
+//     const date = new Date(timestamp);
+//     if (isNaN(date.getTime())) return "N/A"; // Verifica se é uma data válida
+//     return date.toLocaleString(); // Formata para data e hora local
+// }
 
 // Função para classificar o valor do AQI e retornar o ícone apropriado
 // function getAQIClassification(aqi) {
@@ -220,15 +253,15 @@ function formatTimestamp(timestamp) {
 // }
 
 // Função para exibir a classificação no HTML
-function updateStatus(aqi) {
-    const classificacao = getAQIClassification(aqi).classification;
-    // Atualiza o conteúdo do elemento com id="status"
-    document.getElementById("status").innerHTML = `${classificacao}`;
-}
+// function updateStatus(aqi) {
+//     const classificacao = getAQIClassification(aqi).classification;
+//     // Atualiza o conteúdo do elemento com id="status"
+//     document.getElementById("status").innerHTML = `${classificacao}`;
+// }
 
 // Função principal para mostrar todas as estações no mapa
 async function ShowStationsOnMap() {
-    removeMarkers(); // Remove os marcadores existentes
+    // removeMarkers(); // Remove os marcadores existentes
     const stationData = await fetchStationData(); // Obtém os dados das estações via PHP
     stationData.forEach(station => {
         processStationData(station); // Processa e adiciona os marcadores no mapa

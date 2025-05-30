@@ -27,16 +27,8 @@ include 'graficos/carregarpaginainicial.php';
                         <span class="fs-4">Estações</span>
                     </a>
                     <hr>
-                    <ul class="nav nav-pills flex-column mb-auto">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link active" aria-current="page">
-                                <svg class="bi me-2" width="16" height="16">
-                                    <use xlink:href="#home"></use>
-                                </svg>
-                                Home
-                            </a>
-                        </li>
-                    </ul>
+                    <div class="d-grid gap-2" id="stationButtonsContainer">
+                    </div>
                     <hr>
                     <div class="dropdown">
                         <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -118,28 +110,6 @@ include 'graficos/carregarpaginainicial.php';
             </script>
         </div>
     </main>
-
-    <!-- Rodapé -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>© 2025 Acoem. <?= $lang['footer_rights'] ?></p>
-            <div class="contact-container"></div>
-        </div>
-        <div id="FooterSeals">
-            <a href="https://www.acoem.com/brasil/pt-br/" target="_blank" rel="noopener noreferrer">
-                <img src="../src/images/logo-acoem.svg" alt="Logo Acoem" style="margin: 20px;" />
-            </a>
-            <div class="secure-seal">
-                <span id="ss_img_wrapper_115-55_image_en">
-                    <a href="http://www.alphassl.com/ssl-certificates/wildcard-ssl.html" target="_blank" title="SSL Certificates">
-                        <img alt="<?= $lang['footer_ssl_alt'] ?>" id="ss_img" src="//seal.alphassl.com/SiteSeal/images/alpha_noscript_115-55_en.gif" title="SSL Certificate">
-                    </a>
-                </span>
-                <script type="text/javascript" src="//seal.alphassl.com/SiteSeal/alpha_image_115-55_en.js"></script>
-            </div>
-        </div>
-    </footer>
-
     <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
     <script src="../assets/js/index.js"></script>
 </body>
