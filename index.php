@@ -82,7 +82,6 @@ include 'graficos/carregarpaginainicial.php';
 
                         .meteo-value {
                             display: flex;
-                            align-items: center;
                             justify-content: center;
                         }
                     </style>

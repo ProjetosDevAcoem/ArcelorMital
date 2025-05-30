@@ -17,11 +17,9 @@
     align-items: center;
     justify-content: center;
     font-size: 15px;
-    gap: 100px;
     padding-right: 10px;
     margin-right: 40px;
-    align-items: end;
-    justify-content: end;
+    justify-content: start;
 }
 .nav__list a {
     text-decoration: none;
