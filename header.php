@@ -141,4 +141,3 @@ include(__DIR__ . '/../lang/langConfig.php');
         </div>
     </nav>
 </header>
->
